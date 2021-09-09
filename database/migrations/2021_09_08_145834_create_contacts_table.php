@@ -18,6 +18,7 @@ class CreateContactsTable extends Migration
             $table->string('first_name');
             $table->string('email');
             $table->foreignId('client_id')->constrained();
+            $table->foreignId('tenant_id')->constrained();
             $table->timestamps();
         });
     }
@@ -29,7 +30,7 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
-        $table->dropForeign(['client_id']);
+        $table->dropForeign(['client_id', 'tenant_id']);
         Schema::dropIfExists('contacts');
     }
 }

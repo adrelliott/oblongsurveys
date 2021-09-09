@@ -14,8 +14,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
-        return $clients;
+        return Client::all();
     }
 
     /**

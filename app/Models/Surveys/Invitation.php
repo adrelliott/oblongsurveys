@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Invitation extends Model
 {
-    use HasFactory;
+    use HasFactory, TenantManagementTrait;
+
+    // protected $fillable = ['name', 'description'];
+
+
 }

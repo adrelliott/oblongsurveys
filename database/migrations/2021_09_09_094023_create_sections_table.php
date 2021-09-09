@@ -15,6 +15,7 @@ class CreateSectionsTable extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tenant_id')->constrained();
             $table->timestamps();
         });
     }
@@ -26,6 +27,7 @@ class CreateSectionsTable extends Migration
      */
     public function down()
     {
+        $table->dropForeign(['tenant_id']);
         Schema::dropIfExists('sections');
     }
 }

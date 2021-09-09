@@ -4,21 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Scopes\OnlyClientsBelongingToUserScope;
+use App\Traits\TenantManagementTrait;
 
 class Client extends Model
 {
-    use HasFactory;
+    use HasFactory, TenantManagementTrait;
 
-    /**
-     * The "booted" method of the model.
-     *
-     * @return void
-     */
-    protected static function booted()
-    {
-        static::addGlobalScope(new OnlyClientsBelongingToUserScope);
-    }
+    protected $fillable = ['name', 'description'];
 
     public function user()
     {

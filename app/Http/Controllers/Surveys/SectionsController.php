@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Surveys;
 
-use App\Models\Surveys\Response;
+use App\Models\Surveys\Section;
 use Illuminate\Http\Request;
 
-class ResponseController extends Controller
+class SectionsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ResponseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Surveys\Response  $response
+     * @param  \App\Models\Surveys\Section  $section
      * @return \Illuminate\Http\Response
      */
-    public function show(Response $response)
+    public function show(Section $section)
     {
         //
     }
@@ -52,10 +52,10 @@ class ResponseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Surveys\Response  $response
+     * @param  \App\Models\Surveys\Section  $section
      * @return \Illuminate\Http\Response
      */
-    public function edit(Response $response)
+    public function edit(Section $section)
     {
         //
     }
@@ -64,10 +64,10 @@ class ResponseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Surveys\Response  $response
+     * @param  \App\Models\Surveys\Section  $section
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Response $response)
+    public function update(Request $request, Section $section)
     {
         //
     }
@@ -75,10 +75,10 @@ class ResponseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Surveys\Response  $response
+     * @param  \App\Models\Surveys\Section  $section
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Response $response)
+    public function destroy(Section $section)
     {
         //
     }

@@ -4,21 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Scopes\OnlyContactsBelongingToUserScope;
+use App\Traits\TenantManagementTrait;
 
 class Contact extends Model
 {
-    use HasFactory;
+    use HasFactory, TenantManagementTrait;
 
-    /**
-     * The "booted" method of the model.
-     *
-     * @return void
-     */
-    protected static function booted()
-    {
-        static::addGlobalScope(new OnlyContactsBelongingToUserScope);
-    }
+    protected $fillable = ['first_name', 'email', 'client_id'];
+
+    // /**
+    //  * The "booted" method of the model.
+    //  *
+    //  * @return void
+    //  */
+    // protected static function booted()
+    // {
+    //     static::addGlobalScope(new ConstrainByTenantId);
+    // }
 
     public function client()
     {

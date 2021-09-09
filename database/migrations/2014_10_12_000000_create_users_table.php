@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
+            $table->foreignId('tenant_id')->nullable()->constrained();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->boolean('is_superadmin')->default(0);
             $table->timestamps();
@@ -34,6 +35,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+        $table->dropForeign(['tenant_id']);
         Schema::dropIfExists('users');
     }
 }

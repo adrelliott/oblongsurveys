@@ -15,6 +15,7 @@ class CreateResponsesTable extends Migration
     {
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tenant_id')->constrained();
             $table->timestamps();
         });
     }
@@ -26,6 +27,7 @@ class CreateResponsesTable extends Migration
      */
     public function down()
     {
+        $table->dropForeign(['tenant_id']);
         Schema::dropIfExists('responses');
     }
 }

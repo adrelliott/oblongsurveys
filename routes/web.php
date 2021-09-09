@@ -31,6 +31,7 @@ Route::group([
     Route::resource('clients', App\Http\Controllers\ClientsController::class);
 
     // Contacts
+    Route::get('contacts/', [App\Http\Controllers\ContactsController::class, 'index']);
     Route::get('contacts/{contact}', [App\Http\Controllers\ContactsController::class, 'show']);
     Route::get('/contacts/{contact}/edit', [App\Http\Controllers\ContactsController::class, 'edit']);
     Route::put('/contacts/{contact}', [App\Http\Controllers\ContactsController::class, 'update']);

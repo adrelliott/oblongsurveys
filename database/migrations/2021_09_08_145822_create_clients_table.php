@@ -17,7 +17,7 @@ class CreateClientsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('tenant_id')->constrained();
             $table->timestamps();
         });
     }
@@ -29,7 +29,7 @@ class CreateClientsTable extends Migration
      */
     public function down()
     {
-        $table->dropForeign(['user_id']);
+        $table->dropForeign(['tenant_id']);
         Schema::dropIfExists('clients');
     }
 }

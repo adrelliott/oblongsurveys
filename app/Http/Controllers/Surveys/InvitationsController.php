@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Surveys;
 use App\Models\Surveys\Invitation;
 use Illuminate\Http\Request;
 
-class InvitationController extends Controller
+class InvitationsController extends Controller
 {
     /**
      * Display a listing of the resource.
