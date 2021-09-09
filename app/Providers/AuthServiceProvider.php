@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Models\Team;
 use App\Policies\TeamPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Models\User;
+use App\Models\Client;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -26,6 +28,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // See the policies instead.
+        // Gate::define('update-client', function(User $user, Client $client) {
+        //     return $client->user_id === $user->id,
+        // });
+        // Gate::define('delete-client', function(User $user, Client $client) {
+        //     return $client->user_id === $user->id,
+        // });
     }
 }
