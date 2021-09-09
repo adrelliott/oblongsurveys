@@ -13,6 +13,13 @@ class SurveySeeder extends Seeder
      */
     public function run()
     {
-        //
+        $clients = \App\Models\Client::all();
+
+        $clients->each(function($client) {
+            \App\Models\Surveys\Survey::factory(3)->create([
+                'client_id' => $client->id,
+                'tenant_id' => $client->tenant_id,
+            ]);
+        });
     }
 }

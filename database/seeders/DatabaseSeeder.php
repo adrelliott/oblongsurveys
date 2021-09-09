@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             ContactSeeder::class,
 
             // Now set up the surveys, sections and questions
-
+            SurveySeeder::class,
             // Finally, invite some contacts to some surveys
         ]);
     }

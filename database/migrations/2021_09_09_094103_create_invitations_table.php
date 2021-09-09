@@ -15,7 +15,10 @@ class CreateInvitationsTable extends Migration
     {
         Schema::create('invitations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('contact_id')->constrained();
+            $table->foreignId('survey_id')->constrained();
             $table->foreignId('tenant_id')->constrained();
+            $table->timestamp('invited_at')->nullable();
             $table->timestamps();
         });
     }
@@ -27,7 +30,7 @@ class CreateInvitationsTable extends Migration
      */
     public function down()
     {
-        $table->dropForeign(['tenant_id']);
+        $table->dropForeign(['contact_id', 'survey_id', 'tenant_id']);
         Schema::dropIfExists('invitations');
     }
 }

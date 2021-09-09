@@ -15,6 +15,11 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
+            $table->string('question');
+            $table->string('help_text')->nullable();
+            $table->text('intro_page');
+            $table->integer('order')->default(1);
+            $table->foreignId('survey_id')->constrained();
             $table->foreignId('tenant_id')->constrained();
             $table->timestamps();
         });
@@ -27,7 +32,7 @@ class CreateQuestionsTable extends Migration
      */
     public function down()
     {
-        $table->dropForeign(['tenant_id']);
+        $table->dropForeign(['survey_id', 'tenant_id']);
         Schema::dropIfExists('questions');
     }
 }
